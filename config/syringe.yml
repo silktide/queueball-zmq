@@ -1,3 +1,21 @@
 parameters:
+    queueId: ""
 
 services:
+    zmqContext:
+        class: \ZMQContext
+
+    socketFactory:
+        class: Silktide\QueueBall\ZeroMq\SocketFactory
+        arguments:
+            - @zmqContext
+
+    zeroMqQueue:
+        class: Silktide\QueueBall\ZeroMq\Queue
+        arguments:
+            - @socketFactory
+            - @silktide_queueball.messageFactory
+            - %queueId%
+
+    silktide_queueball.defaultQueue:
+        aliasOf: @zeroMqQueue

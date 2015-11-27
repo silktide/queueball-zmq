@@ -4,9 +4,52 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "24e232b57228174dc94fc491df9dd605",
-    "content-hash": "16f082ad53305a2dc399bd189647b783",
-    "packages": [],
+    "hash": "dddb11e4f3ecda98f303ecc8e0614491",
+    "content-hash": "533d90798581d0065ae7f75e80859f86",
+    "packages": [
+        {
+            "name": "silktide/queueball",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/silktide/queueball.git",
+                "reference": "1c65d96c0725a07c29c5af22d6fa361780ceb70b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/silktide/queueball/zipball/1c65d96c0725a07c29c5af22d6fa361780ceb70b",
+                "reference": "1c65d96c0725a07c29c5af22d6fa361780ceb70b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*",
+                "phpunit/phpunit": "4.*"
+            },
+            "type": "library",
+            "extra": {
+                "downsider-puzzle-di": {
+                    "silktide/syringe": {
+                        "path": "config/syringe.yml"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Silktide\\QueueBall\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "Silktide QueueBall, a message queue abstraction module",
+            "homepage": "https://github.com/silktide/queueball",
+            "time": "2015-11-27 22:22:53"
+        }
+    ],
     "packages-dev": [
         {
             "name": "doctrine/instantiator",

@@ -2,5 +2,6 @@ language: php
 php:
 - 5.5
 before_script:
+  - phpenv config-add travis.ini
   - travis_retry composer self-update && composer --version
   - composer install --prefer-source --optimize-autoloader

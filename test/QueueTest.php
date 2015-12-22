@@ -50,12 +50,12 @@ class QueueTest extends \PHPUnit_Framework_TestCase {
             $endpoints["connect"][] = $existingQueueId;
         }
 
-        $queueIdIsTheSame = $existingQueueId == $queueId;
+        $queueIdIsDifferent = $existingQueueId != $queueId;
 
-        $this->socket->shouldReceive("getEndpoints")->andReturn($endpoints);
-        $this->socket->shouldReceive("connect")->times(1 + (int) $queueIdIsTheSame);
+        $this->socket->shouldReceive("getendpoints")->andReturn($endpoints);
+        $this->socket->shouldReceive("connect")->times(1 + (int) $queueIdIsDifferent);
         $this->socket->shouldReceive("send")->twice();
-        if (!$queueIdIsTheSame) {
+        if ($queueIdIsDifferent) {
             $this->socket->shouldReceive("disconnect")->withArgs([$existingQueueId])->atLeast()->once();
         }
 
@@ -81,18 +81,18 @@ class QueueTest extends \PHPUnit_Framework_TestCase {
             $endpoints["bind"][] = $existingQueueId;
         }
 
-        $queueIdIsTheSame = $existingQueueId == $queueId;
+        $queueIdIsDifferent = $existingQueueId != $queueId;
 
-        $this->socket->shouldReceive("getEndpoints")->andReturn($endpoints);
-        $this->socket->shouldReceive("bind")->times(1 + (int) $queueIdIsTheSame);
+        $this->socket->shouldReceive("getendpoints")->andReturn($endpoints);
+        $this->socket->shouldReceive("bind")->times(1 + (int) $queueIdIsDifferent);
         $this->socket->shouldReceive("recv")->twice();
-        if (!$queueIdIsTheSame) {
+        if ($queueIdIsDifferent) {
             $this->socket->shouldReceive("unbind")->withArgs([$existingQueueId])->atLeast()->once();
         }
 
         $queue = new Queue($this->context, $this->messageFactory);
-        $queue->receiveMessage("blah", $existingQueueId);
-        $queue->receiveMessage("blah", $queueId);
+        $queue->receiveMessage($existingQueueId);
+        $queue->receiveMessage($queueId);
     }
 
     public function queueIdProvider()

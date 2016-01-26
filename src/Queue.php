@@ -12,10 +12,13 @@ use Silktide\QueueBall\Queue\AbstractQueue;
  */
 class Queue extends AbstractQueue
 {
+    const WAIT_TIME_INFINITE = -1;
 
     protected $socketFactory;
 
     protected $messageFactory;
+
+    protected $waitTime = self::WAIT_TIME_INFINITE;
 
     /**
      * @var \ZMQSocket
@@ -66,15 +69,30 @@ class Queue extends AbstractQueue
         } else {
             $this->pull = $this->socketFactory->createPullSocket();
         }
+
         if ($connect) {
             $this->pull->bind($queueId);
         }
     }
 
+
+    /**
+     * @param int $seconds
+     * @throws \Exception
+     */
+    public function setWaitTime($seconds)
+    {
+        $seconds = (int) $seconds;
+        if ($seconds < -1) {
+            throw new \Exception("WaitTime must be a period of -1 seconds or above");
+        }
+        $this->waitTime = $seconds;
+    }
+
     /**
      * {@inheritDoc}
      */
-    public function createQueue($queueId, $messageLockTimeout = 0, $options = [])
+    public function createQueue($queueId, $options = [])
     {
         throw new NotImplementedException("ZeroMQ doesn't have the concept of 'creating' a queue");
     }
@@ -101,13 +119,16 @@ class Queue extends AbstractQueue
 
     /**
      * @param string|null $queueId
+     * @param int $waitTime
      *
      * @return QueueMessage
      */
-    public function receiveMessage($queueId = null)
+    public function receiveMessage($queueId = null, $waitTime=null)
     {
         $queueId = empty($queueId)? $this->getQueueId(): $queueId;
+
         $this->setupPullSocket($queueId);
+        $this->pull->setSockOpt(\ZMQ::SOCKOPT_RCVTIMEO, (isset($waitTime) ? $waitTime : $this->waitTime));
 
         $message = $this->pull->recv();
         return $this->messageFactory->createMessage($message, $queueId);

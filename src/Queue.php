@@ -69,10 +69,8 @@ class Queue extends AbstractQueue
         } else {
             $this->pull = $this->socketFactory->createPullSocket();
         }
+
         if ($connect) {
-            foreach ($options as $key => $value) {
-                $this->pull->setSockOpt($key, $value);
-            }
             $this->pull->bind($queueId);
         }
     }
@@ -129,9 +127,8 @@ class Queue extends AbstractQueue
     {
         $queueId = empty($queueId)? $this->getQueueId(): $queueId;
 
-        $this->setupPullSocket($queueId, [
-            \ZMQ::SOCKOPT_RCVTIMEO => (isset($waitTime) ? $waitTime : $this->waitTime)
-        ]);
+        $this->setupPullSocket($queueId);
+        $this->pull->setSockOpt(\ZMQ::SOCKOPT_RCVTIMEO, (isset($waitTime) ? $waitTime : $this->waitTime));
 
         $message = $this->pull->recv();
         return $this->messageFactory->createMessage($message, $queueId);

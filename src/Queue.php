@@ -56,7 +56,7 @@ class Queue extends AbstractQueue
         }
     }
 
-    protected function setupPullSocket($queueId, $options=[])
+    protected function setupPullSocket($queueId)
     {
         $connect = true;
         if (!empty($this->pull)) {

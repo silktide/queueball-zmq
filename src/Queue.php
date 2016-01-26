@@ -92,7 +92,7 @@ class Queue extends AbstractQueue
     /**
      * {@inheritDoc}
      */
-    public function createQueue($queueId, $messageLockTimeout = 0, $options = [])
+    public function createQueue($queueId, $options = [])
     {
         throw new NotImplementedException("ZeroMQ doesn't have the concept of 'creating' a queue");
     }

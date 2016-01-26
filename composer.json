@@ -6,7 +6,7 @@
   "require": {
     "php": ">=5.4.0",
     "ext-zmq": "*",
-    "silktide/queueball": "^2.0"
+    "silktide/queueball": "^2.1"
   },
   "require-dev": {
     "phpunit/phpunit": "4.*",

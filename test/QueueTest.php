@@ -83,6 +83,7 @@ class QueueTest extends \PHPUnit_Framework_TestCase {
 
         $queueIdIsDifferent = $existingQueueId != $queueId;
 
+        $this->socket->shouldReceive("setsockopt");
         $this->socket->shouldReceive("getendpoints")->andReturn($endpoints);
         $this->socket->shouldReceive("bind")->times(1 + (int) $queueIdIsDifferent);
         $this->socket->shouldReceive("recv")->twice();

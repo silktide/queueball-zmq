@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "54eb28059dcae98d8ec9b2b6395bd836",
-    "content-hash": "cbf8ced093cfa51cc046ef497a22b248",
+    "hash": "0b41b045a7a6f04288f12a3dad245f84",
+    "content-hash": "d972cedfbe631eaa874cbb2d7e033860",
     "packages": [
         {
             "name": "silktide/queueball",
-            "version": "2.0.0",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silktide/queueball.git",
-                "reference": "1c65d96c0725a07c29c5af22d6fa361780ceb70b"
+                "reference": "d9793a25013f394fd994c119577fcf15b892d737"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silktide/queueball/zipball/1c65d96c0725a07c29c5af22d6fa361780ceb70b",
-                "reference": "1c65d96c0725a07c29c5af22d6fa361780ceb70b",
+                "url": "https://api.github.com/repos/silktide/queueball/zipball/d9793a25013f394fd994c119577fcf15b892d737",
+                "reference": "d9793a25013f394fd994c119577fcf15b892d737",
                 "shasum": ""
             },
             "require": {
@@ -47,7 +47,7 @@
             ],
             "description": "Silktide QueueBall, a message queue abstraction module",
             "homepage": "https://github.com/silktide/queueball",
-            "time": "2015-11-27 22:22:53"
+            "time": "2016-01-26 18:23:15"
         }
     ],
     "packages-dev": [
@@ -1065,16 +1065,16 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v3.0.0",
+            "version": "v3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "177a015cb0e19ff4a49e0e2e2c5fc1c1bee07002"
+                "reference": "3df409958a646dad2bc5046c3fb671ee24a1a691"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/177a015cb0e19ff4a49e0e2e2c5fc1c1bee07002",
-                "reference": "177a015cb0e19ff4a49e0e2e2c5fc1c1bee07002",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/3df409958a646dad2bc5046c3fb671ee24a1a691",
+                "reference": "3df409958a646dad2bc5046c3fb671ee24a1a691",
                 "shasum": ""
             },
             "require": {
@@ -1110,7 +1110,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2015-11-30 12:36:17"
+            "time": "2015-12-26 13:39:53"
         }
     ],
     "aliases": [],

@@ -78,6 +78,10 @@ class Queue extends AbstractQueue
     }
 
 
+    /**
+     * @param int $seconds
+     * @throws \Exception
+     */
     public function setWaitTime($seconds)
     {
         $seconds = (int) $seconds;

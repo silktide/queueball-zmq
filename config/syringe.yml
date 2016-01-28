@@ -1,6 +1,6 @@
 parameters:
     queueId: ""
-    sendTimeout: "-1" # -1 means wait infinitely
+    sendTimeout: ""
 
 services:
     zmqContext:

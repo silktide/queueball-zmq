@@ -17,7 +17,7 @@ class SocketFactory
         $this->context = $context;
 
         if (!is_int($sendTimeout)) {
-            throw new \InvalidArgumentException("Variable {$sendTimeout} is required to be an integer. '{$sendTimeout}'' received");
+            throw new \InvalidArgumentException("Variable sendTimeout is required to be an integer. '{$sendTimeout}'' received");
         }
 
         $this->sendTimeout = $sendTimeout;

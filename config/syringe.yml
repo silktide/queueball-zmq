@@ -1,5 +1,6 @@
 parameters:
     queueId: ""
+    sendTimeout: "-1" # -1 means wait infinitely
 
 services:
     zmqContext:
@@ -9,6 +10,7 @@ services:
         class: Silktide\QueueBall\ZeroMq\SocketFactory
         arguments:
             - @zmqContext
+            - %sendTimeout%
 
     zeroMqQueue:
         class: Silktide\QueueBall\ZeroMq\Queue

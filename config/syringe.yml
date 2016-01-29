@@ -9,15 +9,15 @@ services:
     socketFactory:
         class: Silktide\QueueBall\ZeroMq\SocketFactory
         arguments:
-            - @zmqContext
-            - %sendTimeout%
+            - "@zmqContext"
+            - "%sendTimeout%"
 
     zeroMqQueue:
         class: Silktide\QueueBall\ZeroMq\Queue
         arguments:
-            - @socketFactory
-            - @silktide_queueball.messageFactory
-            - %queueId%
+            - "@socketFactory"
+            - "@silktide_queueball.messageFactory"
+            - "%queueId%"
 
     silktide_queueball.defaultQueue:
-        aliasOf: @zeroMqQueue
+        aliasOf: "@zeroMqQueue"

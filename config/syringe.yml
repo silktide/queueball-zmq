@@ -1,6 +1,6 @@
 parameters:
     queueId: ""
-    sendTimeout: "^Silktide\QueueBall\ZeroMq\SocketFactory::TIMEOUT_INFINITE^"
+    sendTimeout: "^Silktide\\QueueBall\\ZeroMq\\SocketFactory::TIMEOUT_INFINITE^"
 
 services:
     zmqContext:

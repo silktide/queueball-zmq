@@ -10,7 +10,8 @@
   },
   "require-dev": {
     "phpunit/phpunit": "4.*",
-    "mockery/mockery": "0.9.*"
+    "mockery/mockery": "0.9.*",
+    "silktide/syringe-verifier": "~0"
   },
   "autoload": {
     "psr-4": {

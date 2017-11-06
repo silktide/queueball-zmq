@@ -3,4 +3,5 @@ app: queueball-zmq
 type: library
 source: open
 language: php
+protected: false
 ...
